@@ -1,9 +1,12 @@
 # Cmake
 Using Cmake
 ==================================================================================================
-This respo will be using as Cmake guidance
-    + "Modern Simple Cmake Tutorial" (in this document) is basic simple guidance for using Cmake
-    +  Folder "CmakeForWxWidget" is an example of using Cmake for WxWidget project
+This respo will be using as Cmake guidance:
+
+	+ "Modern Simple Cmake Tutorial" (in this document) is basic simple guidance for using Cmake.
+ 
+	+  Folder "CmakeForWxWidget" is an example of using Cmake for WxWidget project.
+
 Basic of Cmake:
 ==================================================================================================
 					Modern Simple CMake Tutorial
