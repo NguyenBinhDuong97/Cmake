@@ -8,6 +8,7 @@ This respo will be using as Cmake guidance:
 	+  Folder "CmakeForWxWidget" is an example of using Cmake for WxWidget project.
 
 Basic of Cmake:
+
 ==================================================================================================
 					Modern Simple CMake Tutorial
 
@@ -22,17 +23,21 @@ Simple hello world program
 
 	project(hello VERSION 1.0)
 	add_executable(hello main.cpp)
+
 ***************Running CMake********************
+
 CMake from the command line.
 
 cmake . && make && ./hello
 
 ***************Adding a header file*****************
+
 Slightly more involved program with header files. To include a header file directory:
 
 	target_include_directories(hello PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/include)
 
 ***************Multiple source files****************
+
 Ok, what if we have a bunch of source files?
 
 Now the CMake source explicitly discourages this but the "alternative" of listing every source file or using some other build system that generates your CMakeLists.txt files is perhaps even more cumbersome. So knowing all that, I'd recommend continuing to use glob until some sane alternative shows up:
@@ -41,6 +46,7 @@ Now the CMake source explicitly discourages this but the "alternative" of listin
 
 
 **************My own lib*************************
+
 Create a lib from some source files:
 
 Replace add_executable with add_library
@@ -51,6 +57,7 @@ Can then include it in your main executable
 	target_link_libraries(hello PUBLIC mylib)
 
 *************Depending on external library with find_package***************
+
 A lot simpler, things are "cmake ready".
 Has two modes: Module mode (uses FindXXX.cmake files) and Config mode(uses XXXConfig.cmake files)
 Install the library in your system: yay -S sfml
@@ -63,6 +70,7 @@ then you can simply include and link it:
 	target_link_libraries(hello PUBLIC ${SFML_LIBRARIES} ${SFML_DEPENDENCIES})
 
 **************Depending on external lib manually************************
+
 If the library doesn't have a cmake file, there are two parts to it:
 1. You manually link the library and include files.
 2. You figure out that library's dependencies and link those as well.
@@ -81,6 +89,7 @@ Note that you still need include directories for these libraries, you can put th
 To figure out the library's dependencies, refer to its documentation and then manually link/include those like above.
 
 ***************Directory structure***********************
+
 Now, your project might be structured across multiple folders. You can easily create a top level CMakeLists.txt that just includes all directories using the add_subdirectory(subdir) command and CMake execute those in order.
 One thing to be careful about is setting variables, a subdirectory has its own scope. And in order to make a variable accessible in a higher scope, you need to set it with PARENT_SCOPE.
 CPM
